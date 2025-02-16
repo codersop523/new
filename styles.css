@@ -1690,6 +1690,46 @@ footer {
 }
 
 
+/* Sticky Bottom Buttons - Only for Mobile */
+@media (max-width: 768px) {
+    .mobile-buttons {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        z-index: 1000;
+    }
+
+    .mobile-buttons a {
+        flex: 1; /* Equal width */
+        text-align: center;
+        padding: 15px;
+        font-size: 16px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .call-us {
+        background-color: #007bff; /* Blue */
+    }
+
+    .enquiry {
+        background-color: #28a745; /* Green */
+    }
+
+    .call-us:hover {
+        background-color: #0056b3;
+    }
+
+    .enquiry:hover {
+        background-color: #218838;
+    }
+}
+
+
+
 /* body {
     font-family: Arial, sans-serif;
     margin: 0;
