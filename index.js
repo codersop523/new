@@ -61,87 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// // script.js
-// document.addEventListener('DOMContentLoaded', function() {
-//     // Tab switching functionality
-//     const serviceTab = document.querySelector('.tab-options .active');
-//     const taxTab = document.querySelector('.tab-options button');
-    
-//     // Mobile carousel functionality
-//     const serviceCards = document.querySelectorAll('.service-card');
-//     const dots = document.querySelectorAll('.dot');
-//     let currentCardIndex = 0;
 
-//     // Initialize mobile view
-//     if (window.innerWidth <= 768) {
-//         updateCardVisibility();
-//     }
-
-//     // Handle tab switching
-//     taxTab.addEventListener('click', function() {
-//         window.location.href = 'tax.html';
-//     });
-
-//     // Mobile touch handling
-//     let touchStartX = 0;
-//     let touchEndX = 0;
-
-//     const servicesContainer = document.querySelector('.services-container');
-    
-//     servicesContainer.addEventListener('touchstart', (e) => {
-//         touchStartX = e.touches[0].clientX;
-//     });
-
-//     servicesContainer.addEventListener('touchend', (e) => {
-//         touchEndX = e.changedTouches[0].clientX;
-//         handleSwipe();
-//     });
-
-//     function handleSwipe() {
-//         const swipeThreshold = 50;
-//         const swipeLength = touchEndX - touchStartX;
-
-//         if (Math.abs(swipeLength) > swipeThreshold) {
-//             if (swipeLength > 0 && currentCardIndex > 0) {
-//                 // Swipe right
-//                 currentCardIndex--;
-//             } else if (swipeLength < 0 && currentCardIndex < serviceCards.length - 1) {
-//                 // Swipe left
-//                 currentCardIndex++;
-//             }
-//             updateCardVisibility();
-//         }
-//     }
-
-//     function updateCardVisibility() {
-//         serviceCards.forEach((card, index) => {
-//             card.style.display = index === currentCardIndex ? 'block' : 'none';
-//         });
-        
-//         // Update dots
-//         dots.forEach((dot, index) => {
-//             dot.classList.toggle('active', index === currentCardIndex);
-//         });
-//     }
-
-//     // Handle dot clicks
-//     dots.forEach((dot, index) => {
-//         dot.addEventListener('click', () => {
-//             currentCardIndex = index;
-//             updateCardVisibility();
-//         });
-//     });
-
-//     // Handle window resize
-//     window.addEventListener('resize', () => {
-//         if (window.innerWidth <= 768) {
-//             updateCardVisibility();
-//         } else {
-//             // Reset for desktop view
-//             serviceCards.forEach(card => card.style.display = 'block');
-//         }
-//     });
-// });
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -190,87 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// let startX;
-// let currentX;
-// let isDragging = false;
-// const swipeContent = document.getElementById('partner-card');
 
-// swipeContent.addEventListener('mousedown', (e) => {
-//     startX = e.pageX;
-//     isDragging = true;
-// });
-
-// swipeContent.addEventListener('mousemove', (e) => {
-//     if (!isDragging) return;
-//     currentX = e.pageX;
-//     const deltaX = currentX - startX;
-//     swipeContent.style.transform = `translateX(${deltaX}px)`;
-// });
-
-// swipeContent.addEventListener('mouseup', () => {
-//     isDragging = false;
-//     swipeContent.style.transform = 'translateX(0)';
-// });
-
-// swipeContent.addEventListener('mouseleave', () => {
-//     isDragging = false;
-//     swipeContent.style.transform = 'translateX(0)';
-// });
-
-
-// document.querySelectorAll('.card button').forEach(button => {
-//     button.addEventListener('click', () => {
-//         alert('More information coming soon!');
-//     });
-// });
-
-
-//  // Simple touch detection for carousel
-//  const carousel = document.querySelector('.carousel-inner');
-//  let isDown = false;
-//  let startX;
-//  let scrollLeft;
-
-//  carousel.addEventListener('mousedown', (e) => {
-//      isDown = true;
-//      startX = e.pageX - carousel.offsetLeft;
-//      scrollLeft = carousel.scrollLeft;
-//  });
-
-//  carousel.addEventListener('mouseleave', () => {
-//      isDown = false;
-//  });
-
-//  carousel.addEventListener('mouseup', () => {
-//      isDown = false;
-//  });
-
-//  carousel.addEventListener('mousemove', (e) => {
-//      if (!isDown) return;
-//      e.preventDefault();
-//      const x = e.pageX - carousel.offsetLeft;
-//      const walk = (x - startX) * 2;
-//      carousel.scrollLeft = scrollLeft - walk;
-//  });
-
-//  // Touch events
-//  carousel.addEventListener('touchstart', (e) => {
-//      isDown = true;
-//      startX = e.touches[0].pageX - carousel.offsetLeft;
-//      scrollLeft = carousel.scrollLeft;
-//  });
-
-//  carousel.addEventListener('touchend', () => {
-//      isDown = false;
-//  });
-
-//  carousel.addEventListener('touchmove', (e) => {
-//      if (!isDown) return;
-//      e.preventDefault();
-//      const x = e.touches[0].pageX - carousel.offsetLeft;
-//      const walk = (x - startX) * 2;
-//      carousel.scrollLeft = scrollLeft - walk;
-//  });
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -368,4 +208,83 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
    
+});
+
+// dot for about
+document.addEventListener("DOMContentLoaded", function () {
+    const cardsContainer = document.querySelector(".cards-container");
+    const dots = document.querySelectorAll(".dot");
+
+    function updateActiveDot() {
+        const cards = document.querySelectorAll(".card");
+        let scrollLeft = cardsContainer.scrollLeft;
+        let cardWidth = cards[0].offsetWidth;
+        let activeIndex = Math.round(scrollLeft / cardWidth); // Calculate which card is in view
+
+        dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === activeIndex);
+        });
+    }
+
+    // Listen for scroll events on the carousel
+    cardsContainer.addEventListener("scroll", updateActiveDot);
+});
+
+
+
+
+
+// blog caarosaul
+document.addEventListener("DOMContentLoaded", function () {
+    const blogContainer = document.querySelector(".blog-container");
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    blogContainer.addEventListener("mousedown", (e) => {
+        isDown = true;
+        blogContainer.classList.add("active");
+        startX = e.pageX - blogContainer.offsetLeft;
+        scrollLeft = blogContainer.scrollLeft;
+    });
+
+    blogContainer.addEventListener("mouseleave", () => {
+        isDown = false;
+        blogContainer.classList.remove("active");
+    });
+
+    blogContainer.addEventListener("mouseup", () => {
+        isDown = false;
+        blogContainer.classList.remove("active");
+    });
+
+    blogContainer.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - blogContainer.offsetLeft;
+        const walk = (x - startX) * 2; // Scroll speed
+        blogContainer.scrollLeft = scrollLeft - walk;
+    });
+
+    // Touch swipe for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    blogContainer.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    blogContainer.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeDistance = touchEndX - touchStartX;
+        if (swipeDistance > 50) {
+            blogContainer.scrollBy({ left: -300, behavior: "smooth" }); // Swipe Left
+        } else if (swipeDistance < -50) {
+            blogContainer.scrollBy({ left: 300, behavior: "smooth" }); // Swipe Right
+        }
+    }
 });
