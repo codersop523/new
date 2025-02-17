@@ -339,7 +339,6 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 50px 10%;
 }
 
 .about-left img {
@@ -399,7 +398,6 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 50px 10%;
 }
 
 .management-text {
@@ -644,51 +642,6 @@
 
 /* Header Section */
 
-.services-container {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.services-container.active {
-    display: flex;
-    /* flex-direction: column; */
-    opacity: 1;
-}
-
-.tab {
-    cursor: pointer;
-    padding: 10px 15px;
-    font-size: 16px;
-    color: #333;
-}
-
-.tab.active {
-    font-weight: bold;
-    color: #007bff;
-    border-bottom: 2px solid #007bff;
-}
-
-.carousel-dots {
-    text-align: center;
-    margin-top: 15px;
-}
-
-.dot {
-    height: 10px;
-    width: 10px;
-    margin: 0 5px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.dot.active {
-    background-color: #007bff;
-}
-
-
 .services-section {
     margin: 0;
     padding: 0;
@@ -697,7 +650,21 @@
     color: #0A1232;
     text-align: center;
     background: url('./images/Solutions.png') no-repeat center center/cover;
+    
 }
+
+.tab {
+    cursor: pointer;
+    padding: 10px;
+    display: inline-block;
+}
+
+.tab.active {
+    font-weight: bold;
+    border-bottom: 2px solid #000; /* Example active tab styling */
+}
+
+
 
 
 .services-header {
@@ -734,10 +701,18 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 0;
+    margin-top: 30px;
     padding: 0 10%;
+   
 }
-
+.services-container2 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    padding: 0 10%;
+    
+}
 .service-card {
     background: white;
     border-radius: 8px;
@@ -747,6 +722,9 @@
     position: relative;
     max-width: 300px;
     transition: 0.3s;
+    
+    
+    
 }
 
 .service-card:hover {
@@ -829,7 +807,13 @@
 
     .carousel-dots {
         display: flex;
+        justify-content: center; /* Center dots horizontally */
+        align-items: center; /* Align dots vertically */
+        gap: 10px; /* Space between dots */
+        margin-top: 15px; /* Adjust spacing from carousel */
+        
     }
+    
 }
 
 /* Small Title Above Main Heading */
@@ -1040,8 +1024,9 @@ h2 {
     .partners-container {
         overflow-x: auto;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         scroll-snap-type: x mandatory;
+        
     }
 
     .partner-card {
@@ -1462,7 +1447,7 @@ h2 {
     }
 }
 
-
+/* Blog */
 
 header {
     text-align: center;
@@ -1555,10 +1540,46 @@ header p {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 15px;
+} 
+
+/* Default Desktop View */
+.content {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Mobile View: Horizontal Scroll */
+@media (max-width: 768px) {
+    .carousel-container {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+
+    .carousel-container ::-webkit-scrollbar {
+         width: 0;
+    }
+
+    .content {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 0px;
+        padding: 10px;
+    }
+
+    .card {
+        min-width: 80%;
+        scroll-snap-align: start;
+        transition: transform 0.3s ease-in-out;
+    }
 }
 
 
 
+/* taher */
 .footer-container {
     background: #f5f5f5;
     padding: 40px 20px;
@@ -1579,7 +1600,7 @@ footer {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 30px;
     margin-bottom: 30px;
 }
@@ -1660,7 +1681,7 @@ footer {
 .linkdin {
     height: 100px;
     text-align: end;
-    padding-right: 300px;
+    padding-right: 230px;
 }
 
 .social {
@@ -1689,6 +1710,81 @@ footer {
     }
 }
 
+.mobile-buttons {
+    display: none;
+}
+
+/* mobile footer */
+.mobile-footer {
+    display: none;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    footer {
+        display: none;
+    }
+
+    .mobile-footer {
+        display: block;
+        padding: 20px;
+        background: #BDC5D6;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .footer-column h4 {
+        margin-bottom: 12px;
+        color: #184454;
+        font-size: 16px;
+    }
+
+    
+
+    .footer-divider {
+        border: 0;
+        border-top: 1px solid #ddd;
+        margin: 20px 0;
+    }
+
+    .subscribe-section {
+        text-align: center;
+    }
+
+    .subscribe-input {
+        display: flex;
+        margin-bottom: 15px;
+        justify-content: center;
+    }
+
+    .subscribe-input input {
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 200px;
+    }
+
+    .subscribe-input button {
+        padding: 8px 20px;
+        background: #FE7F03;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .copyright {
+        text-align: center;
+        font-size: 12px;
+        color: #245F73;
+        margin-bottom: 100px;
+    }
+}
 
 /* Sticky Bottom Buttons - Only for Mobile */
 @media (max-width: 768px) {
@@ -1712,128 +1808,22 @@ footer {
     }
 
     .call-us {
-        background-color: #007bff; /* Blue */
+        background-color: #333; /* Blue */
     }
 
     .enquiry {
-        background-color: #28a745; /* Green */
+        background-color: #FE7F03; /* Green */
     }
 
     .call-us:hover {
-        background-color: #0056b3;
+        background-color: #333;
     }
 
     .enquiry:hover {
-        background-color: #218838;
+        background-color: #FE7F03;
     }
 }
 
 
 
-/* body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    background-color: #f4f4f4;
-}
-.hero {
-    background: #002147;
-    color: white;
-    text-align: left;
-    padding: 50px 20px;
-}
-.hero h1 {
-    margin: 0;
-    font-size: xx-large;
-}
-.btn {
-    display: inline-block;
-    background: #ff9900;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    margin-top: 10px;
-    border-radius: 5px;
-}
 
-.secondary-btn {
-    display: inline-block;
-    background-color: transparent;
-    color: #ff9900;
-    border: 2px solid #ff9900;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.secondary-btn:hover {
-    background-color: #ff9900;
-    color: white;
-} */
-
-/* .services {
-    text-align: center;
-    padding: 40px 20px;
-    background: white;
-}
-.service-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-.card {
-    background: #e9ecef;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    width: 250px;
-}
-.faq {
-    background: #e9ecef;
-    padding: 40px 20px;
-    text-align: center;
-}
-details {
-    background: white;
-    padding: 10px;
-    margin: 10px auto;
-    width: 50%;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.contact {
-    text-align: center;
-    padding: 40px 20px;
-    background: white;
-}
-form {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin: 0 auto;
-}
-input, textarea {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-button {
-    background: #ff9900;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-footer {
-    background: #002147;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
-} */

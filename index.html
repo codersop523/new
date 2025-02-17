@@ -199,8 +199,8 @@
     <!-- Tab Navigation -->
     <div class="services-header">
         <div class="tab-options">
-            <span class="tab active" data-target="product">By Product / Service</span>
-            <span class="tab" data-target="tax">By Tax Status</span>
+            <span id="productTab" class="tab active">By Product / Service</span>
+            <span id="taxTab" class="tab">By Tax Status</span>
         </div>
         <h2>Asset Management Solutions</h2>
     </div>
@@ -208,7 +208,7 @@
     <!-- Services Sections -->
     <div class="services-content">
         <!-- By Product / Service Section -->
-        <div class="services-container product active">
+        <div class="services-container" id="servicescontainer">
             <div class="service-card">
                 <span class="label">Learn</span>
                 <h3>Investment Advisory Services</h3>
@@ -232,8 +232,8 @@
         </div>
 
         <!-- By Tax Status Section -->
-        <div class="services-container tax" style="margin-top: 0; padding-top: 0;">
-            <div class="service-card " style="margin-top: 0; padding-top: 0;">
+        <div class="services-container2" id="servicescontainer2" style="display:none ;">
+            <div class="service-card">
                 <span class="label">Learn</span>
                 <h3>Tax Optimized Investment Plans</h3>
                 <p>Our tax-efficient investment solutions help you optimize your returns while minimizing tax liabilities.</p>
@@ -257,10 +257,10 @@
     </div>
 
     <!-- Carousel Dots -->
-    <div class="carousel-dots">
-        <span class="dot active" data-target="product"></span>
-        <span class="dot" data-target="tax"></span>
-    </div>
+     <div class="carousel-dots">
+        <span id="dot1" class="dot active"></span>
+        <span id="dot2" class="dot"></span>
+    </div> 
 </section>
 
     
@@ -273,13 +273,13 @@
     </p>
 
     <!-- Partner Cards Section -->
-    <div class="partners-container ">
-        <div class="partner-card "><img src="./images/kotak.png" alt="Kotak Mahindra Bank"></div>
-        <div class="partner-card "><img src="./images/kotak.png" alt="Kotak Mahindra Bank"></div>
-        <div class="partner-card "><img src="./images/kotak.png" alt="Kotak Mahindra Bank"></div>
-        <div class="partner-card "><img src="./images/kotak.png" alt="Kotak Mahindra Bank"></div>
-        <div class="partner-card "><img src="./images/kotak.png" alt="Kotak Mahindra Bank"></div>
-        <div class="partner-card "><img src="./images/kotak.png" alt="Kotak Mahindra Bank"></div>
+    <div class="cards-container">
+        <div class="partner-card card"><img src="./images/kotak.png" alt="Kotak Mahindra Bank"></div>
+        <div class="partner-card card"><img src="./images/kotak.png" alt="Kotak Mahindra Bank"></div>
+        <div class="partner-card card"><img src="./images/kotak.png" alt="Kotak Mahindra Bank"></div>
+        <div class="partner-card card"><img src="./images/kotak.png" alt="Kotak Mahindra Bank"></div>
+        <div class="partner-card card"><img src="./images/kotak.png" alt="Kotak Mahindra Bank"></div>
+        <div class="partner-card card"><img src="./images/kotak.png" alt="Kotak Mahindra Bank"></div>
     </div>
 
     <!-- Carousel Dots -->
@@ -468,7 +468,7 @@
     </div>
 </section>
     
-<!-- <div class="container">
+
 <header>
     <p>Blogs</p>
 </header>
@@ -502,9 +502,9 @@
         <button>Read More</button>
     </div>
 </section>
-</div> -->
+</div>
 
-
+<!-- taher -->
     
 <footer >
     <div class="footer-grid">
@@ -517,11 +517,11 @@
             <div>
                 
                 <strong> <img src="./images/Vector 2.png" alt="" srcset=""> Mumbai Address:</strong>
-                <p style="padding-left: 25px;">B5, STC Society, NS Phadke Marg, Andheri (E), Mumbai 400069.</p>
+                <p style="padding-left: 35px;">B5, STC Society, NS Phadke Marg, Andheri (E), Mumbai 400069.</p>
             </div>
             <div>
-                <strong>Puna Address:</strong>
-                <p>302, Pinnacle Building, 334/335 North Main Road, Koregaon Park, Pune 411001.</p>
+                <strong style="padding-left: 35px;" >Puna Address:</strong>
+                <p style="padding-left: 35px;" >302, Pinnacle Building, 334/335 North Main Road, Koregaon Park, Pune 411001.</p>
             </div>
         </div>
 
@@ -558,7 +558,11 @@
             </ul>
         </div>
 
-        
+        <div class="footer-section">
+            <h3>Useful tools</h3>
+            <h3>our services</h3>
+            <h3>Terms & conditions</h3> 
+        </div>
     </div>
 
     <div class="linkdin">
@@ -576,15 +580,46 @@
             <div class="newsletter">
                 <p>Subscribe</p>
                 <input type="email" placeholder="Your email here">
-                <button>Submit</button>
+                <button style="background-color: #FE7F03;">Submit</button>
             </div>
         </div>
     </div>
+
 </footer>
+
+<!-- Mobile Footer -->
+<div class="mobile-footer">
+    <div class="footer-grid">
+        <!-- First Column -->
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <h4>Good Reads</h4>
+            <h4>Our services</h4>
+        </div>
+
+        <!-- Second Column -->
+        <div class="footer-column">
+            <h4>Disclosures</h4>
+            <h4>Useful tools</h4>
+            <h4>Terms</h4>
+        </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="subscribe-section">
+        <p style="color: #245F73;">Subscribe</p>
+        <div class="subscribe-input">
+            <input type="email" placeholder="Your email here" >
+            <button>Submit</button>
+        </div>
+        <p class="copyright">© Springer USER Shareholders as superannounces.</p>
+    </div>
+</div>
 
 <div class="mobile-buttons">
     <a href="tel:+1234567890" class="call-us">Call Us</a>
-    <a href="enquiry.html" class="enquiry">Enquiry</a>
+    <a href="enquiry.html" class="enquiry">Enquire Now</a>
 </div>
 
 

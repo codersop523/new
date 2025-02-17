@@ -271,3 +271,101 @@ document.addEventListener("DOMContentLoaded", function () {
 //      const walk = (x - startX) * 2;
 //      carousel.scrollLeft = scrollLeft - walk;
 //  });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const productTab = document.getElementById('productTab');
+    const taxTab = document.getElementById('taxTab');
+    const servicesContainer = document.getElementById('servicescontainer');
+    const servicesContainer2 = document.getElementById('servicescontainer2');
+    const dot1 = document.getElementById('dot1');
+    const dot2 = document.getElementById('dot2');
+
+    function showServicesContainer() {
+        servicesContainer.style.display = 'flex';
+        servicesContainer2.style.display = 'none';
+
+        productTab.classList.add('active');
+        taxTab.classList.remove('active');
+
+        dot1.classList.add('active');
+        dot2.classList.remove('active');
+
+        checkScreenSize();
+    }
+
+    function showServicesContainer2() {
+        servicesContainer.style.display = 'none';
+        servicesContainer2.style.display = 'flex';
+
+        taxTab.classList.add('active');
+        productTab.classList.remove('active');
+
+        dot2.classList.add('active');
+        dot1.classList.remove('active');
+
+        checkScreenSize();
+    }
+
+    productTab.addEventListener('click', showServicesContainer);
+    taxTab.addEventListener('click', showServicesContainer2);
+    dot1.addEventListener('click', showServicesContainer);
+    dot2.addEventListener('click', showServicesContainer2);
+
+    function enableSwipe(container) {
+        const cards = container.querySelectorAll('.service-card');
+        const totalCards = cards.length;
+        let currentIndex = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function updateSlide() {
+            cards.forEach((card, index) => {
+                card.style.display = index === currentIndex ? 'block' : 'none';
+            });
+        }
+
+        container.addEventListener('touchstart', function (event) {
+            touchStartX = event.touches[0].clientX;
+        });
+
+        container.addEventListener('touchmove', function (event) {
+            touchEndX = event.touches[0].clientX;
+        });
+
+        container.addEventListener('touchend', function () {
+            let swipeDistance = touchStartX - touchEndX;
+
+            if (swipeDistance > 50 && currentIndex < totalCards - 1) {
+                currentIndex++; // Swipe left
+            } else if (swipeDistance < -50 && currentIndex > 0) {
+                currentIndex--; // Swipe right
+            }
+
+            updateSlide();
+        });
+
+        updateSlide();
+    }
+
+    function checkScreenSize() {
+        if (window.innerWidth > 768) {
+            // Desktop - Show all cards
+            document.querySelectorAll('.services-container').forEach(container => {
+                container.querySelectorAll('.service-card').forEach(card => {
+                    card.style.display = 'block';
+                });
+            });
+        } else {
+            // Mobile - Enable swipe
+            enableSwipe(servicesContainer);
+            enableSwipe(servicesContainer2);
+        }
+    }
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+
+
+   
+});
